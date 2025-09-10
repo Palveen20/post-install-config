@@ -2,16 +2,18 @@
 <img src="https://i.imgur.com/Clzj7Xs.png" alt="osTicket logo"/>
 </p>
 
-<h1>osTicket - Post-Install Configuration</h1>
-This tutorial outlines the post-install configuration of the open-source help desk ticketing system osTicket.<br />
+<h1>osTicket - Post-Install Configuration Guide</h1>
+After successfully installing osTicket on a Windows Server VM in Microsoft Azure, the next step is to configure the system so it can function as a fully operational help desk ticketing solution. This post-install configuration ensures that roles, agents, departments, and service workflows are properly defined, allowing tickets to be routed and resolved efficiently.
+
+This guide walks through the key configuration steps within the Admin Panel of osTicket.<br />
 
 
 
 <h2>Environments and Technologies Used</h2>
 
 - Microsoft Azure (Virtual Machines/Compute)
-- Remote Desktop
-- Internet Information Services (IIS)
+- Remote Desktop Protocol (RDP) – to access the VM
+- Internet Information Services (IIS) - to host os Ticket
 
 <h2>Operating Systems Used </h2>
 
@@ -26,7 +28,7 @@ This tutorial outlines the post-install configuration of the open-source help de
 - Configure Users
 - Configure SLA
 - Configure Help Topics
-
+Each of these steps establishes how osTicket will manage tickets, assign responsibilities, and track response times.
 
 
 
@@ -37,10 +39,10 @@ This tutorial outlines the post-install configuration of the open-source help de
 
 
 
-<strong>Admin Panel > Agents > Roles.</strong>
+<strong>Navigate to: Admin Panel > Agents > Roles</strong>
 <p>
 </p>
-<p>
+<p>Roles define the level of access and permissions for support staff. For example, administrators may have full control, while support agents may only have access to assigned tickets.
 </p>
 <br />
 <p>
@@ -71,9 +73,13 @@ This tutorial outlines the post-install configuration of the open-source help de
 
 
 
-<strong>Admin Panel > Agents > Departments.</strong>
+<strong>Go to: Admin Panel > Agents > Departments</strong>
 <p>
-System Administrators:
+Departments allow you to organize ticket assignments by function, such as:
+System Administrators
+Human Resources
+Customer Support
+This makes it easier to assign issues to the right group of people.  
 </p>
 <p>
 </p>
@@ -96,11 +102,11 @@ System Administrators:
 
 
 
-<strong>Admin Panel > Agents > Teams.</strong>
+<strong>Path: Admin Panel > Agents > Teams</strong>
 <p>
-Online Banking:
+Teams are cross-departmental groups that can be assigned to specific types of tickets.
 </p>
-<p>
+<p>Example: Online Banking Team – members from IT and Finance working together to handle customer banking issues.
 </p>
 <br />
 <p>
@@ -121,9 +127,9 @@ Online Banking:
 
 <strong>Admin Panel > Settings > User Settings.</strong>
 <p>
-Make sure "Require registration and login to create tickets" is NOT selected:
+Uncheck the option: “Require registration and login to create tickets.”
 </p>
-<p>
+<p>This allows both registered users and external customers to open tickets without mandatory logins.
 </p>
 <br />
 <p>
@@ -136,30 +142,32 @@ Make sure "Require registration and login to create tickets" is NOT selected:
 
 
 <p align="center">
-  <h1>Configure Agents (workers)</h1>
+  <h1>Configure Agents (Support Staff)</h1>
 </p>
 
 
 
 <strong>Admin Panel > Agents > Add New.</strong>
 <p>
-Ben Crawford:
+Agents are the help desk staff who will work on tickets.
 </p>
 <p>
+Example entries:
+Ben Crawford – Full access to Support Department
 </p>
 <br />
 <p>
 <img <img width="951" height="809" alt="Screenshot 2025-09-01 182410" src="https://github.com/user-attachments/assets/524b0adf-9324-4611-8375-f8ef5a95fcc7"/>
 </p>
 <p>
-Jane Doe: 
+ Jane Doe – Full access to Support Department
 <img width="952" height="813" alt="Screenshot 2025-09-01 182435" src="https://github.com/user-attachments/assets/fa90c704-ff38-4f65-ae63-a8218890e7b0"/>
 
 <img width="957" height="397" alt="Screenshot 2025-09-01 182458" src="https://github.com/user-attachments/assets/1b04352e-afed-45c1-a5ce-13d2e87ffda6"/>
 
 
 
-Both agents have all access to the Support Department
+Agents should be assigned to appropriate roles, teams, and departments based on their job function.
 </p>
 <br />
 
@@ -174,7 +182,9 @@ Both agents have all access to the Support Department
 
 <strong>Admin Panel > Users > Add New.</strong>
 <p>
-Karen (end user):
+End users are the customers who create tickets.
+Example:
+Karen – Internal user added to the system
 </p>
 <p>
 </p>
@@ -183,7 +193,7 @@ Karen (end user):
 <img <img width="643" height="389" alt="Screenshot 2025-09-01 182746" src="https://github.com/user-attachments/assets/867e6744-583e-473a-82c0-917d16f72623"/>
 </p>
 
-Repeat this step for any internal end users.
+Repeat this process for any additional employees or customers who will be using the system.
 <p>
 </p>
 <br />
@@ -198,9 +208,9 @@ Repeat this step for any internal end users.
 
 <strong>Admin Panel > Manage > SLA.</strong>
 <p>
-Sev-A (1 hour, 24/7).
-Sev-B (4 hours, 24/7).
-Sev-C (8 hours, business hours).
+Sev-A – 1 hour response time, 24/7 coverage (Critical issues)
+Sev-B – 4 hours response time, 24/7 coverage (Major issues)
+Sev-C – 8 hours response time, business hours only (Low-priority issues)
 </p>
 <p>
 </p>
@@ -226,12 +236,13 @@ Sev-C (8 hours, business hours).
 
 <strong>Admin Panel > Manage > Help Topics.</strong>
 <p>
- Business Critical Outage.
- Personal Computer Issues.
- Equipment Request.
-Password Reset.
+ Help Topics guide users when submitting tickets, ensuring proper routing. Example topics:
+Business Critical Outage
+Personal Computer Issues
+Equipment Request
+Password Reset
 </p>
-<p>
+<p>These topics make it easier for users to categorize their requests and for the system to auto-assign tickets to the right department/team.
 </p>
 <br />
 <p>
@@ -245,7 +256,9 @@ Password Reset.
 
 </p>
 <p>
-Hope this will helpful with all the configurations to have a smooth osTicket experience!
+At this stage, osTicket has been fully configured with roles, departments, teams, agents, end users, SLA policies, and help topics. These post-installation steps are critical for ensuring tickets flow correctly, response times are tracked, and support staff have the right level of access.
+
+With these configurations, your osTicket system is now ready to function as a robust help desk platform, capable of handling both internal IT support requests and external customer service issues efficiently.
 </p>
 <br />
 
