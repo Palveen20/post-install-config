@@ -109,12 +109,6 @@ Teams are cross-departmental groups that can be assigned to specific types of ti
 <p>Example: Online Banking Team – members from IT and Finance working together to handle customer banking issues.
 </p>
 <br />
-<p>
-<img <img width="957" height="673" alt="Screenshot 2025-09-01 182109" src="https://github.com/user-attachments/assets/c94f56f3-839d-48e2-a95c-01f39473858c"/>
-</p>
-<p>
-</p>
-<br />
 
 
 
